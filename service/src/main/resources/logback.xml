@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <jmxConfigurator/>
+    <property name="logs.dir" value="./logs" />
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d - [%t] %-5p %c:%L %X - %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="DAILY_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Append>true</Append>
+        <File>${logs.dir}/audit.log</File>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d - [%t] %-5p %c:%L %X - %m%n%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logs.dir}/audit.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${logs.dir}/audit-error.log</File>
+        <Append>true</Append>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d - [%t] %-5p %c:%L %X - %m%n%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>10</maxIndex>
+            <FileNamePattern>${logs.dir}/audit-error.log.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10240KB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- Sample -->
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.mybatis" level="DEBUG"/>
+    <logger name="druid.sql" level="DEBUG"/>
+    <logger name="druid" level="DEBUG"/>
+    <logger name="org.apache.http" level="INFO"/>
+    <logger name="com.alibaba.dubbo" level="INFO"/>
+    <logger name="org.apache.zookeeper" level="INFO"/>
+    <logger name="org.apache.tomcat" level="INFO"/>
+    <logger name="org.apache.catalina" level="INFO"/>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="DAILY_FILE"/>
+        <appender-ref ref="ROLLING_FILE"/>
+    </root>
+</configuration>

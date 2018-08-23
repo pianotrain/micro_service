@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.rensm.audit.service.redis.config.RedisAutoConfiguration,\
+com.rensm.audit.service.mybatis.config.MybatisAutoConfiguration,\
+com.rensm.audit.service.mybatis.config.MybatisMapperScannerConfiguration

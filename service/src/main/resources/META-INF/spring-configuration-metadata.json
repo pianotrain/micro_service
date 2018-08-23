@@ -1,0 +1,81 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "name": "spring.redis",
+      "type": "com.hfi.health.starters.redis.properties.RedisProperties"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "name": "spring.redis.cluster",
+      "sourceMethod": "getCluster()",
+      "type": "com.hfi.health.starters.redis.properties.RedisProperties$Cluster"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "name": "spring.redis.pool",
+      "sourceMethod": "getPool()",
+      "type": "com.hfi.health.starters.redis.properties.RedisProperties$Pool"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties$Cluster",
+      "name": "spring.redis.cluster.nodes",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "defaultValue": 0,
+      "name": "spring.redis.data-base",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "name": "spring.redis.host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "name": "spring.redis.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties$Pool",
+      "defaultValue": 20,
+      "name": "spring.redis.pool.max-active",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties$Pool",
+      "defaultValue": 8,
+      "name": "spring.redis.pool.max-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties$Pool",
+      "defaultValue": 30000,
+      "name": "spring.redis.pool.max-wait",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties$Pool",
+      "defaultValue": 0,
+      "name": "spring.redis.pool.min-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "defaultValue": 6379,
+      "name": "spring.redis.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.hfi.health.starters.redis.properties.RedisProperties",
+      "defaultValue": 0,
+      "name": "spring.redis.timeout",
+      "type": "java.lang.Integer"
+    }
+  ]
+}
