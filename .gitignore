@@ -3,7 +3,8 @@
 *.log
 classes/
 ${data.dir}/
-log.dir_IS_UNDEFINED/
+logs.dir_IS_UNDEFINED/
+logs/
 
 # Package Files #
 *.jar
